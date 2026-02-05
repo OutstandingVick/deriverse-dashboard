@@ -157,3 +157,35 @@ const DashboardSummary = ({ trades }) => {
     </div>
   );
 };
+
+// Sub-components
+const StatCard = ({
+  title,
+  value,
+  change,
+  isPositive,
+  icon,
+  color = 'text-emerald-400',
+}) => (
+  <div className='bg-slate-900/60 border border-slate-800 p-6 rounded-2xl'>
+    <div className='flex justify-between items-start mb-4'>
+      <div className='p-2 bg-slate-800 rounded-lg text-slate-400'>
+        {icon || <Activity size={20} />}
+      </div>
+      {change && (
+        <span
+          className={`flex items-center text-xs font-bold ${isPositive ? 'text-emerald-400' : 'text-rose-400'}`}
+        >
+          {isPositive ? (
+            <ArrowUpRight size={14} />
+          ) : (
+            <ArrowDownRight size={14} />
+          )}{' '}
+          {change}
+        </span>
+      )}
+    </div>
+    <div className='text-slate-500 text-sm font-medium'>{title}</div>
+    <div className={`text-2xl font-bold mt-1 font-mono ${color}`}>{value}</div>
+  </div>
+);
