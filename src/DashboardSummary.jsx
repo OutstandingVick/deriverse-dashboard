@@ -189,3 +189,20 @@ const StatCard = ({
     <div className={`text-2xl font-bold mt-1 font-mono ${color}`}>{value}</div>
   </div>
 );
+
+const AssetRow = ({ symbol, pnl, count }) => (
+  <div className='flex justify-between items-center'>
+    <div>
+      <div className='font-bold text-sm'>{symbol}</div>
+      <div className='text-xs text-slate-500'>{count} Trades</div>
+    </div>
+    <div
+      className={`font-mono text-sm ${pnl >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}
+    >
+      {pnl >= 0 ? '+' : ''}
+      {pnl}
+    </div>
+  </div>
+);
+
+export default DashboardSummary;
